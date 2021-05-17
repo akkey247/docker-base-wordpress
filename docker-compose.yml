@@ -4,7 +4,6 @@ services:
     image: mysql:5.7
     volumes:
       - ./db/mysql:/var/lib/mysql
-    restart: always
     environment:
       TZ: Asia/Tokyo
       MYSQL_ROOT_PASSWORD: root_pass
@@ -18,7 +17,6 @@ services:
       - ./wordpress/html:/var/www/html
       - ./php/php.ini:/usr/local/etc/php/conf.d/php.ini
       - ./log:/var/log
-    restart: always
     depends_on:
       - db
     ports:
@@ -32,7 +30,6 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
-    restart: always
     depends_on:
       - db
     ports:
@@ -42,7 +39,6 @@ services:
 
   mailhog:
     image: mailhog/mailhog
-    restart: always
     ports:
       - 1025:1025
       - 8025:8025
