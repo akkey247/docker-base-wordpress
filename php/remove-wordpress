@@ -1,0 +1,4 @@
+#!/bin/bash
+
+rm -rf /var/www/html/* /var/www/html/.*
+mysql --ssl=off --host=db --port=3306 --user=wp_user --password=wp_pass --database=wp_database --execute="DROP DATABASE wp_database; CREATE DATABASE wp_database;"
